@@ -29,7 +29,7 @@
     }
 
     $: subtotal = details.reduce((a, b)=>a + b.price*b.quantity,0)
-    $: fee = subtotal * 0.005;
+    $: fee = parseFloat((subtotal * 0.005).toFixed(2));
     $: total = subtotal + fee;
 </script>
 
@@ -39,26 +39,26 @@
         {#each details as detail (detail.id)}
             <ProductInfo {detail} {updateQuantity} {removeItem} />
         {/each}
-        <div class="mt-10">
-            <div class="flex my-4 justify-between">
-                <h2 class="font-normal text-xm text-gray-500 md:text-xl">Subtotal</h2>
-                <h2 class="font-normal text-xm md:text-xl">${subtotal}</h2>
-            </div>
-            <div class="flex my-4 justify-between">
-                <h2 class="font-normal text-xm text-gray-500 md:text-xl">Estimated Shipping</h2>
-                <h2 class="font-normal text-xm md:text-xl">${fee}</h2>
-            </div>
-            <div class="flex my-4 justify-between">
-                <h2 class="font-normal text-xm text-gray-500 md:text-xl">Estimated Tax</h2>
-                <h2 class="font-normal text-xm md:text-xl">To be determined</h2>
-            </div>
-            <div class="flex my-4 justify-between">
-                <h2 class="font-normal text-xm text-gray-500 md:text-xl">Total</h2>
-                <h2 class="font-normal text-xm md:text-xl">${total}</h2>
-            </div>
-            <div class="flex justify-center">
-                <button class="text-white bg-blue-700 p-2 rounded-lg w-[40vw] font-semibold mt-2">Secure Checkout</button>
-            </div>
+        <div class="mt-4">
+        <div class="flex my-4 justify-between">
+            <h2 class="font-normal text-xm text-gray-500 md:text-xl">Subtotal</h2>
+            <h2 class="font-normal text-xm md:text-xl">${subtotal}</h2>
+        </div>
+        <div class="flex my-4 justify-between">
+            <h2 class="font-normal text-xm text-gray-500 md:text-xl">Estimated Shipping</h2>
+            <h2 class="font-normal text-xm md:text-xl">${fee}</h2>
+        </div>
+        <div class="flex my-4 justify-between">
+            <h2 class="font-normal text-xm text-gray-500 md:text-xl">Estimated Tax</h2>
+            <h2 class="font-normal text-xm md:text-xl">To be determined</h2>
+        </div>
+        <div class="flex my-4 justify-between">
+            <h2 class="font-normal text-xm text-gray-500 md:text-xl">Total</h2>
+            <h2 class="font-normal text-xm md:text-xl">${total}</h2>
+        </div>
+        <div class="flex justify-center">
+            <button class="text-white bg-blue-700 p-2 rounded-lg w-[40vw] font-semibold mt-2">Secure Checkout</button>
+        </div>
         </div>
     {:else}
         <div class="flex h-[85vh] justify-center items-center text-gray-300 text-3xl">No item in cart</div>
