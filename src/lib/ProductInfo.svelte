@@ -2,9 +2,8 @@
     import MdRemove from 'svelte-icons/md/MdRemove.svelte'
     import MdAdd from 'svelte-icons/md/MdAdd.svelte'
     import MdDelete from 'svelte-icons/md/MdDelete.svelte'
+    import { createEventDispatcher } from "svelte";
     export let detail;
-    export let updateQuantity;
-    export let removeItem;
 
     $: src = detail.src
     $: name = detail.name
@@ -12,14 +11,18 @@
     $: desc = detail.desc
     $: quantity = detail.quantity
 
-    const handleQty = (add) =>{
+    
+    const dispatch = createEventDispatcher();
+    let handleQty = (add) =>{
         if(add){
             detail = {...detail, quantity: ++quantity};
         } else {
             detail = {...detail, quantity: --quantity};
         }
-        updateQuantity(detail);
+        dispatch("updateQuantity", detail)
     }
+
+    let handleRemove = () => dispatch("removeItem", detail)
 
 
 </script>
@@ -32,7 +35,7 @@
     <div class="ml-4 w-full">
         <div class="flex justify-between">
         <h2 class="font-semibold text-xm md:text-xl">{name}</h2>
-        <button class="w-5 mr-3 md:w-6" on:click={()=>removeItem(detail)}><MdDelete /></button>
+        <button class="w-5 mr-3 md:w-6" on:click={()=>handleRemove()}><MdDelete /></button>
         </div>
         <h2 class="font-normal text-sm text-gray-500 md:text-xm">{desc}</h2>
         <div class="flex justify-between w-full">

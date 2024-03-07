@@ -8,18 +8,19 @@
         {id:4, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 38.00, desc: "Size, Medium Color: Black", quantity: 3},
         {id:5, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 4800.00, desc: "Size, Medium Color: Black", quantity: 3}
     ]
-    const updateQuantity = (updatedValue) => {
+    const updateQuantity = (e) => {
+        console.log(e.detail)
         for(var i = 0; i < details.length; i++){
-            if(details[i].id === updatedValue.id){
-                details[i] = updatedValue;
+            if(details[i].id === e.detail.id){
+                details[i] = e.detail;
                 break
             }
         }
     }
 
-    const removeItem = (updatedValue) => {
+    const removeItem = (e) => {
         for(var i = 0; i < details.length; i++){
-            if(details[i].id === updatedValue.id){
+            if(details[i].id === e.detail.id){
                 const index = details.indexOf(details[i])
                 details.splice(index, 1);
                 details = details
@@ -37,7 +38,7 @@
     <h1 class="font-bold text-xl md:text-2xl">Checkout</h1> 
     {#if details.length > 0}
         {#each details as detail (detail.id)}
-            <ProductInfo {detail} {updateQuantity} {removeItem} />
+            <ProductInfo {detail} on:updateQuantity={updateQuantity} on:removeItem={removeItem} />
         {/each}
         <div class="mt-4">
         <div class="flex my-4 justify-between">
@@ -45,7 +46,7 @@
             <h2 class="font-normal text-xm md:text-xl">${subtotal}</h2>
         </div>
         <div class="flex my-4 justify-between">
-            <h2 class="font-normal text-xm text-gray-500 md:text-xl">Estimated Shipping</h2>
+            <h2 class="font-normal text-xm text-gray-500 md:text-xl">Estimated Shipping Fee</h2>
             <h2 class="font-normal text-xm md:text-xl">${fee}</h2>
         </div>
         <div class="flex my-4 justify-between">
