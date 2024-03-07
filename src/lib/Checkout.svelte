@@ -1,12 +1,12 @@
 <script>
     import ProductInfo from "./ProductInfo.svelte";
     let details = [
-        {id:0, src: "https://images.pexels.com/photos/15707951/pexels-photo-15707951.jpeg", name: "Women's Cargo Utility Jogger", price: 78.00, desc: "Size, Medium Color: Black", quantity: 3},
-        {id:1, src: "https://images.pexels.com/photos/15707951/pexels-photo-15707951.jpeg", name: "Women's Cargo Utility Jogger", price: 780.00, desc: "Size, Medium Color: Black", quantity: 3},
-        {id:2, src: "https://images.pexels.com/photos/15707951/pexels-photo-15707951.jpeg", name: "Women's Cargo Utility Jogger", price: 8.00, desc: "Size, Medium Color: Black", quantity: 3},
-        {id:3, src: "https://images.pexels.com/photos/15707951/pexels-photo-15707951.jpeg", name: "Women's Cargo Utility Jogger", price: 230.00, desc: "Size, Medium Color: Black", quantity: 3},
-        {id:4, src: "https://images.pexels.com/photos/15707951/pexels-photo-15707951.jpeg", name: "Women's Cargo Utility Jogger", price: 38.00, desc: "Size, Medium Color: Black", quantity: 3},
-        {id:5, src: "https://images.pexels.com/photos/15707951/pexels-photo-15707951.jpeg", name: "Women's Cargo Utility Jogger", price: 4800.00, desc: "Size, Medium Color: Black", quantity: 3}
+        {id:0, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 78.00, desc: "Size, Medium Color: Black", quantity: 3},
+        {id:1, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 780.00, desc: "Size, Medium Color: Black", quantity: 3},
+        {id:2, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 8.00, desc: "Size, Medium Color: Black", quantity: 3},
+        {id:3, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 230.00, desc: "Size, Medium Color: Black", quantity: 3},
+        {id:4, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 38.00, desc: "Size, Medium Color: Black", quantity: 3},
+        {id:5, src: "https://m.media-amazon.com/images/I/61zaC+-OF+L.jpg", name: "Women's Cargo Utility Jogger", price: 4800.00, desc: "Size, Medium Color: Black", quantity: 3}
     ]
     const updateQuantity = (updatedValue) => {
         for(var i = 0; i < details.length; i++){
