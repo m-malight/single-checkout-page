@@ -62,6 +62,6 @@
         </div>
         </div>
     {:else}
-        <div class="flex h-[85vh] justify-center items-center text-gray-300 text-3xl">No item in cart</div>
+        <div class="flex h-[85vh] justify-center items-center text-gray-300 text-3xl">No item in the cart</div>
     {/if}
 </div>
