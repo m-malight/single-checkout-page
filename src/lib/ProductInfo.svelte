@@ -14,9 +14,11 @@
   const dispatch = createEventDispatcher();
   let handleQty = (add) => {
     if (add) {
-      detail = { ...detail, quantity: ++quantity };
+      quantity++;
+      detail = { ...detail, quantity };
     } else {
-      detail = { ...detail, quantity: --quantity };
+      quantity--;
+      detail = { ...detail, quantity };
     }
     dispatch("updateQuantity", detail);
   };
